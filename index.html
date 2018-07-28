@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Noteapp!</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+<h1>notes</h1>
+<div class="debug version-list">
+Node <script>document.write(process.versions.node)</script><br/>
+Chrome <script>document.write(process.versions.chrome)</script><br/>
+Electron <script>document.write(process.versions.electron)</script>
+</div>
+<textarea id="main" class="placeholder-text" placeholder="Type something here..">
+</textarea>
+<p id="local-saved">Never</p>
+<p id="cloud-saved">Never</p>
+<script src="_assets/js/dom.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+h1 {
+    color: red;
+}
+.debug.version-list {
+    float: right;
+    font-size: 11px;
+    position: absolute;
+    right:0;
+    top: 0;
+}
+textarea.placeholder-text {
+    font-size: 14px;
+    color: lightgrey;
+}
+
+textarea#main {
+    width: 50%;
+    min-height: 300px;
+}
+
+/*mobile styles*/
+@media screen and (max-width: 720px) {
+    textarea#main {
+        width: 100%;
+        min-height: 300px;
+    }
+}
