@@ -1,0 +1,22 @@
+{
+  "name": "noteapp",
+  "version": "0.0.1",
+  "description": "encrypted noteapp",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genericb/noteapp.git"
+  },
+  "author": "bo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/genericb/noteapp/issues"
+  },
+  "homepage": "https://github.com/genericb/noteapp#readme",
+  "devDependencies": {
+    "electron": "^2.0.5"
+  }
+}
