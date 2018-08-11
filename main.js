@@ -2,11 +2,27 @@
 const {app, BrowserWindow} = require('electron');
 const {ipcMain} = require('electron');
 const storage = require('electron-json-storage');
+const fs = require('fs');
 const defaultDataPath = storage.getDefaultDataPath();
+const dir_token = "savepath.bo"; //optional, read save directory from file
 
-console.log(defaultDataPath);
-storage.setDataPath('C:\\Users\\bozid\\Desktop\\notes');
-console.log(storage.getDataPath());
+
+fs.readFile(dir_token, 'utf8', (err, data) => {
+    if (err) {
+        if (err.code === 'ENOENT') {
+            console.error('File does not exist, check directory token');
+            return;
+        }
+
+        throw err;
+    }
+
+    console.log('found storage path: ' + data);
+    storage.setDataPath(data);
+
+});
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
