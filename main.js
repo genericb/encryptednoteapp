@@ -1,7 +1,12 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron');
 const {ipcMain} = require('electron');
+const storage = require('electron-json-storage');
+const defaultDataPath = storage.getDefaultDataPath();
 
+console.log(defaultDataPath);
+storage.setDataPath('C:\\Users\\bozid\\Desktop\\notes');
+console.log(storage.getDataPath());
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -56,5 +61,9 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 ipcMain.on('asynchronous-message', (event, arg) => {
     console.log(arg); // prints "ping"
-    event.sender.send('asynchronous-reply', 'Saved');
+    storage.set('note', { v1: arg }, function(error) {
+        if (error) throw error;
+        event.sender.send('asynchronous-reply', 'Saved');
+    });
+
 });
