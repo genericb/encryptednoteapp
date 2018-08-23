@@ -37,3 +37,9 @@ ipcRenderer.on('async-main', (event, arg) => {
 ipcRenderer.on('async-textconfirm', (event, arg) => {
     console.log('text ch: ' + arg) // prints "pong"
 });
+
+ipcRenderer.on('async-fileload', (event, arg) => {
+    console.log(arg);
+    textInputElement.classList.remove('placeholder-text');
+   textInputElement.value = arg.v1;
+});

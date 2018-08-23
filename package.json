@@ -4,7 +4,7 @@
   "description": "encrypted noteapp",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron --inspect ."
   },
   "repository": {
     "type": "git",

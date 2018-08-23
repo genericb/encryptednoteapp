@@ -23,6 +23,9 @@ fs.readFile(dir_token, 'utf8', (err, data) => {
 });
 
 
+
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -38,7 +41,12 @@ function createWindow () {
     mainWindow.webContents.openDevTools();
 
     mainWindow.webContents.on('did-finish-load', () => {
-        mainWindow.webContents.send('async-main', 'loaded')
+        mainWindow.webContents.send('async-main', 'loaded');
+        storage.get('note', function(error, data) {
+            if (error) throw error;
+            console.log('found: ' + data);
+            mainWindow.webContents.send('async-fileload', data);
+        });
     });
 
 
